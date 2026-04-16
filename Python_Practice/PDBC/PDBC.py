@@ -2,7 +2,7 @@ import mysql.connector
 
 # print(mysql.connector)
 # after connection, need to create connect Obj
-db_C = mysql.connector.connect( #dbc object
+db_C = mysql.connector.connect( # of connection for dbc_c object
 host="localhost",
 user="root",
 database="d12_pdbc",
@@ -22,9 +22,9 @@ create table if not exists employees(
 # print(dbC,"13th line")
 print("Database connected successfully....")
 
-cursor__ob=db_C.cursor() # cursor method is having excute method #cursor object
+cursor__ob=db_C.cursor() # cursor method is having excute method for that #cursor_ob object
 
-# print(cursor__,"cusror__")
+# print(cursor__ob,"cusror__ob")
 cursor__ob.execute(table_Creation_Query)
 
 # print("table created successfully.....")
@@ -48,8 +48,8 @@ while True:
         s = float(input("Enter salary here  :--  "))
         query_Inserting_Emp="insert into employees (id,name,age,email,salary) values (%s,%s,%s,%s,%s)"#query of inserting
         data=(i,n,a,e,s) # data to be into insert query
-        cursor__ob.execute(query_Inserting_Emp,data) # executing the query and inserting data to table
-        db_C.commit() # making insrting opeartion chnages to save permanantly
+        cursor__ob.execute(query_Inserting_Emp,data) # executing the query and inserting data to table using cursor_ob
+        db_C.commit() # making insrting opeartion chnages to save permanantly using Connecton Obj
         print("Employee addedd successfully.....")
 
     elif option == 2: 
